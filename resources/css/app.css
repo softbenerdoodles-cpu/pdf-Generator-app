@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+/* Dark mode follows a class on <html> so the toggle in the header can win
+   over the operating system preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    /* Kept to the system stack so the app has no build-time font fetch and
+       no render-blocking request at run time. */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-sans);
+    }
+}
+
+/* The tilted document cards flanking the hero. */
+@utility card-tilt-left {
+    transform: rotate(-6deg);
+}
+
+@utility card-tilt-right {
+    transform: rotate(5deg);
+}
